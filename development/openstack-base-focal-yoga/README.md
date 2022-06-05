@@ -40,6 +40,9 @@ The MAAS cluster must have a minimum of four nodes:
   (East/West traffic), and the second is for network traffic between the cloud
   and all external networks (North/South traffic).
 
+> **Pro tip**: A single network interface will suffice if an Open vSwitch
+  bridge is used on each of the nodes (MAAS v.2.9.2 required).
+
 > **Note**: The smaller controller node can be targeted via Juju
   [constraints][juju-constraints-controller] at controller-creation time.
 
@@ -81,7 +84,7 @@ documentation on [overlay bundles][juju-overlays].
 ## Modify the bundle
 
 If using the stable openstack-base bundle, the file to modify is
-`./stable/openstack-base/bundle.yaml`.
+`stable/openstack-base/bundle.yaml`.
 
 > **Tip**: Keep the master branch of the repository pristine and create a
   working branch to contain your modifications.
@@ -169,7 +172,7 @@ See to the [Vault charm README][vault-charm-post-deploy] for instructions.
 You'll need the OpenStack clients in order to manage your cloud from the
 command line. Install them now:
 
-    sudo snap install openstackclients --classic
+    sudo snap install openstackclients
 
 ## Access the cloud
 
@@ -330,9 +333,9 @@ The final credentials needed to log in are:
 
 <!-- There are two spaces at the end of the next two lines -->
 
-User Name: **admin**  
-Password: ********************  
-Domain: **admin_domain**
+User Name: `admin`  
+Password: `***************`  
+Domain: `admin_domain`
 
 ### VM consoles
 
@@ -345,6 +348,7 @@ connect to VM consoles from within the dashboard:
 
 The below resources are recommended for further reading:
 
+* [What is OpenStack?]: for an overview of the OpenStack project
 * [OpenStack Administrator Guides][openstack-admin-guides]: for upstream
   OpenStack administrative help
 * [OpenStack Charms Deployment Guide][cdg]: for charm usage information
@@ -365,3 +369,4 @@ The below resources are recommended for further reading:
 [vault-charm-post-deploy]: https://opendev.org/openstack/charm-vault/src/branch/master/src/README.md#post-deployment-tasks
 [openstack-neutron]: https://docs.openstack.org/neutron/
 [openstack-admin-guides]: http://docs.openstack.org/admin
+[What is OpenStack?]: https://ubuntu.com/openstack/what-is-openstack
